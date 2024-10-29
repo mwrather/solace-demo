@@ -9,13 +9,21 @@
 
 import { Advocate } from './types';
 
-export async function getFilteredAdvocates(filter = ''): Promise<Advocate[]> {
-  const response = await fetch('/api/advocates');
-  const { data } = await response.json();
+const API_HOST = process.env.API_HOST || 'http://localhost:3000';
 
-  if (data === undefined) {
-    throw new Error('Error fetching advocates from API.');
-  }
+export async function getFilteredAdvocates(query = ''): Promise<Advocate[]> {
+    const url = new URL(`${API_HOST}/api/advocates`);
 
-  return data;
+    if (query !== '') {
+        url.searchParams.append('q', query);
+    }
+
+    const response = await fetch(url);
+    const { data } = await response.json();
+
+    if (data === undefined) {
+        throw new Error('Error fetching advocates from API.');
+    }
+
+    return data;
 }
