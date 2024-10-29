@@ -17,6 +17,7 @@
     "seed": "node --loader esbuild-register/loader -r esbuild-register ./src/db/seed/index.ts"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.59.16",
     "drizzle-orm": "^0.32.1",
     "next": "^14.2.5",
     "postgres": "^3.4.4",
