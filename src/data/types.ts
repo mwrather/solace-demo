@@ -11,3 +11,9 @@ export type Advocate = {
   yearsOfExperience: number;
   phoneNumber: number;
 };
+
+export type PaginationResponse = {
+  page: number;
+  totalPages: number;
+  totalItems: number;
+};
