@@ -10,6 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write ./src",
+    "format:check": "prettier --check ./src",
     "generate": "drizzle-kit generate",
     "migrate:up": "node ./src/db/migrate.js",
     "seed": "node --loader esbuild-register/loader -r esbuild-register ./src/db/seed/index.ts"
@@ -29,6 +31,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
     "postcss": "^8.4.40",
+    "prettier": "3.3.3",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.5.4"
   }

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [advocates, setAdvocates] = useState([]);
   const [filteredAdvocates, setFilteredAdvocates] = useState([]);
 
   useEffect(() => {
-    console.log("fetching advocates...");
-    fetch("/api/advocates").then((response) => {
+    console.log('fetching advocates...');
+    fetch('/api/advocates').then((response) => {
       response.json().then((jsonResponse) => {
         setAdvocates(jsonResponse.data);
         setFilteredAdvocates(jsonResponse.data);
@@ -19,9 +19,9 @@ export default function Home() {
   const onChange = (e) => {
     const searchTerm = e.target.value;
 
-    document.getElementById("search-term").innerHTML = searchTerm;
+    document.getElementById('search-term').innerHTML = searchTerm;
 
-    console.log("filtering advocates...");
+    console.log('filtering advocates...');
     const filteredAdvocates = advocates.filter((advocate) => {
       return (
         advocate.firstName.includes(searchTerm) ||
@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   return (
-    <main style={{ margin: "24px" }}>
+    <main style={{ margin: '24px' }}>
       <h1>Solace Advocates</h1>
       <br />
       <br />
@@ -51,7 +51,7 @@ export default function Home() {
         <p>
           Searching for: <span id="search-term"></span>
         </p>
-        <input style={{ border: "1px solid black" }} onChange={onChange} />
+        <input style={{ border: '1px solid black' }} onChange={onChange} />
         <button onClick={onClick}>Reset Search</button>
       </div>
       <br />
